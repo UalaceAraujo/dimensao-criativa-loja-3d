@@ -48,5 +48,5 @@ Não há dependências ou build necessários. Basta abrir o arquivo `index.html`
 ## 👤 Autor
 
 **Ualace Araújo**
-Estudante de Ciência da Computação (UNIP) em transição de carreira da Logística para Tecnologia.
+Estudante de Ciência da Computação (UNIP).
 [LinkedIn](https://linkedin.com/in/ualacearaujo) | [GitHub](https://github.com/UalaceAraujo)
