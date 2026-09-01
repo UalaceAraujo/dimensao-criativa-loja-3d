@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimento WhatsApp 3D | Dimensão Criativa</title>
+
+  <!-- Folha de estilos -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body class="cyber-store-body whatsapp-page-view">
+
+  <!-- Header -->
+  <header class="store-header">
+    <div class="container navbar-container">
+      
+      <a href="index.html" class="brand-link">
+        <div class="logo-box">
+          <img src="assets/images/logo.png" alt="Logomarca Dimensão Criativa" class="brand-logo-img">
+        </div>
+        <div class="brand-naming">
+          <span class="brand-title">DIMENSÃO <span class="highlight-pink">CRIATIVA</span></span>
+          <span class="brand-tagline">ATENDIMENTO WHATSAPP 3D</span>
+        </div>
+      </a>
+
+      <div class="header-right-actions">
+        <div class="online-indicator">
+          <span class="pulse-dot-cyan"></span>
+          <span>Equipe Técnica Online</span>
+        </div>
+        <a href="index.html" class="btn btn-secondary-store btn-sm">
+          &larr; Voltar para a Loja
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero do WhatsApp -->
+  <section class="wa-hero-section">
+    <div class="container">
+      <div class="wa-hero-header text-center">
+        <div class="wa-badge-top">
+          <span class="glow-cyan">⚡</span> CANAL OFICIAL DE ATENDIMENTO DIRETO
+        </div>
+        <h1 class="wa-hero-title">Fale com a Dimensão Criativa no <span class="glow-cyan">WhatsApp</span></h1>
+        <p class="wa-hero-subtitle">
+          Envie arquivos 3D para cotação imediata, tire dúvidas sobre produtos da vitrine ou solicite projetos personalizados.
+        </p>
+      </div>
+
+      <!-- 4 Cards de Departamentos Rápidos -->
+      <div class="wa-departments-grid">
+        
+        <div class="wa-dept-card card-glow-cyan" onclick="sendDirectWhatsApp('orcamento')">
+          <div class="wa-dept-icon glow-cyan-icon">📐</div>
+          <h3>Orçamento de Arquivo 3D</h3>
+          <p>Envie arquivos (.STL / .OBJ / .STEP) e receba o cálculo de filamento e tempo em minutos.</p>
+          <span class="wa-dept-action text-cyan">Iniciar no WhatsApp &rarr;</span>
+        </div>
+
+        <div class="wa-dept-card card-glow-pink" onclick="sendDirectWhatsApp('personalizado')">
+          <div class="wa-dept-icon glow-pink-icon">🎨</div>
+          <h3>Projetos & Brindes</h3>
+          <p>Troféus, chaveiros, luminárias, miniaturas de RPG e pedidos corporativos em escala.</p>
+          <span class="wa-dept-action text-pink">Falar com Designer &rarr;</span>
+        </div>
+
+        <div class="wa-dept-card card-glow-orange" onclick="sendDirectWhatsApp('pedido')">
+          <div class="wa-dept-icon glow-orange-icon">📦</div>
+          <h3>Dúvidas sobre Pedido</h3>
+          <p>Consulte status de produção, envio, rastreamento ou alteração de endereço.</p>
+          <span class="wa-dept-action text-orange">Consultar Pedido &rarr;</span>
+        </div>
+
+        <div class="wa-dept-card card-glow-purple" onclick="sendDirectWhatsApp('tecnico')">
+          <div class="wa-dept-icon glow-purple-icon">⚙️</div>
+          <h3>Consultoria de Engenharia</h3>
+          <p>Suporte sobre resistência mecânica de PLA, PETG, ABS, Nylon e Resinas 8K.</p>
+          <span class="wa-dept-action text-purple">Suporte Técnico &rarr;</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Gerador Dinâmico de Mensagem WhatsApp -->
+  <section class="wa-builder-section">
+    <div class="container wa-builder-grid">
+      
+      <div class="wa-form-box">
+        <div class="builder-header">
+          <span class="sub-label">MONTADOR DE PEDIDO</span>
+          <h2>Gere sua Mensagem Automática</h2>
+          <p>Preencha os campos abaixo para abrir a conversa com todos os dados organizados:</p>
+        </div>
+
+        <form id="waCustomForm" onsubmit="event.preventDefault(); launchGeneratedWhatsApp();">
+          
+          <div class="form-group">
+            <label for="waClientName">Seu Nome / Empresa:</label>
+            <input type="text" id="waClientName" placeholder="Ex: Roberto Gomes" oninput="updateLivePreview()" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waServiceType">Assunto Principal:</label>
+            <select id="waServiceType" onchange="updateLivePreview()">
+              <option value="Orçamento de Impressão 3D">Orçamento de Impressão 3D (Tenho arquivo)</option>
+              <option value="Modelagem 3D do Zero">Modelagem 3D do Zero (Tenho a ideia)</option>
+              <option value="Compra de Produto da Loja">Compra de Produto do Catálogo</option>
+              <option value="Pedido Corporativo / Brindes">Pedido Corporativo / Lote em Escala</option>
+              <option value="Outro assunto">Outro assunto</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="waMaterial">Material ou Acabamento Desejado:</label>
+            <select id="waMaterial" onchange="updateLivePreview()">
+              <option value="FDM - PLA Premium (Decoração & Visual)">FDM - PLA Premium (Decoração & Visual)</option>
+              <option value="FDM - PETG / ABS (Resistência e Calor)">FDM - PETG / ABS (Resistência e Calor)</option>
+              <option value="SLA - Resina Ultra HD 8K (Máximo Detalhe)">SLA - Resina Ultra HD 8K (Máximo Detalhe)</option>
+              <option value="Preciso de recomendação">Preciso de recomendação da equipe</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="waQuantity">Quantidade de Peças:</label>
+            <input type="number" id="waQuantity" value="1" min="1" max="10000" oninput="updateLivePreview()">
+          </div>
+
+          <div class="form-group">
+            <label for="waDetails">Breve Descrição do Projeto / Medidas:</label>
+            <textarea id="waDetails" rows="3" placeholder="Ex: Preciso de uma peça de 15cm x 10cm na cor azul cobalto..." oninput="updateLivePreview()"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-wa-launch btn-full">
+            <span>💬</span> Abrir WhatsApp com Mensagem Pronta
+          </button>
+        </form>
+      </div>
+
+      <!-- Simulador de Chat WhatsApp -->
+      <div class="wa-preview-wrapper">
+        <div class="phone-simulator">
+          <div class="phone-top-bar">
+            <div class="wa-contact-info">
+              <div class="wa-avatar">
+                <img src="assets/images/logo.png" alt="Dimensão Criativa">
+              </div>
+              <div>
+                <strong>Dimensão Criativa 3D</strong>
+                <small class="wa-status-online">Atendimento Oficial</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-chat-body">
+            <div class="chat-date">HOJE</div>
+            
+            <div class="wa-bubble wa-bubble-received">
+              Olá! 👋 Seja bem-vindo(a) à <strong>Dimensão Criativa</strong>. Como podemos ajudar no seu projeto 3D hoje?
+              <span class="bubble-time">10:00</span>
+            </div>
+
+            <div class="wa-bubble wa-bubble-sent" id="waLiveMessagePreview">
+              Olá, equipe Dimensão Criativa! Gostaria de falar sobre um projeto 3D.
+              <span class="bubble-time" id="previewTime">Agora</span>
+            </div>
+          </div>
+
+          <div class="phone-bottom-bar">
+            <button class="btn-direct-chat" onclick="launchGeneratedWhatsApp()">
+              Enviar esta mensagem &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="qr-support-card">
+          <div class="qr-info">
+            <strong>Atendimento Rápido:</strong>
+            <p>Fale diretamente pelo número oficial da empresa:</p>
+            <span class="phone-number-tag">📞 (16) 99999-9999</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="store-footer">
+    <div class="container text-center">
+      <small>&copy; 2026 Dimensão Criativa - Manufatura Aditiva e Design. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
